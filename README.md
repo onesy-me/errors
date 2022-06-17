@@ -19,7 +19,7 @@
 <h3 align='center'>
   <sub>MIT license&nbsp;&nbsp;&nbsp;&nbsp;</sub>
   <sub>Production ready&nbsp;&nbsp;&nbsp;&nbsp;</sub>
-  <sub>All errors 0.73kb gzipped&nbsp;&nbsp;&nbsp;&nbsp;</sub>
+  <sub>UMD 0.8kb gzipped&nbsp;&nbsp;&nbsp;&nbsp;</sub>
   <sub>100% test cov&nbsp;&nbsp;&nbsp;&nbsp;</sub>
   <sub>Browser and Nodejs</sub>
 </h3>
