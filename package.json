@@ -39,7 +39,7 @@
     "@babel/runtime": "^7.18.3"
   },
   "devDependencies": {
-    "@amaui/test": "^1.0.1114",
+    "@amaui/test": "^1.0.1141",
     "@amaui/utils": "^1.0.1874",
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",

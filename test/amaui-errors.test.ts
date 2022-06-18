@@ -1,18 +1,11 @@
 /* tslint:disable: no-shadowed-variable */
 import { assert } from '@amaui/test';
 
-import { startBrowsers, IBrowsers, evaluate, closeBrowsers } from '../utils/js/test/utils';
+import { evaluate } from '../utils/js/test/utils';
 
 import { AmauiAmqpError, AmauiAwsError, AmauiError, AmauiMongoError, AmauiTestError, AssertError, AuthenticationError, AuthorizationError, ConnectionError, DeveloperError, NotFoundError, PermissionError, ValidationError } from '../src';
 
 group('@amaui/errors', () => {
-  let browsers: IBrowsers;
-
-  pre(async () => browsers = await startBrowsers());
-
-  post(async () => {
-    await closeBrowsers(browsers);
-  });
 
   to('name', async () => {
     const values_ = [
@@ -49,7 +42,7 @@ group('@amaui/errors', () => {
       ];
 
       return values_.map((value: any) => value.name);
-    }, { browsers });
+    });
 
     const valueNode = values_.map(value => value.name);
     const values = [valueNode, ...valueBrowsers];
@@ -84,7 +77,7 @@ group('@amaui/errors', () => {
       ];
 
       return values_.map((value: any) => value.message);
-    }, { browsers });
+    });
 
     const valueNode = values_.map(value => value.message);
     const values = [valueNode, ...valueBrowsers];
@@ -127,7 +120,7 @@ group('@amaui/errors', () => {
       ];
 
       return values_.map((value: any) => value.message);
-    }, { browsers });
+    });
 
     const valueNode = values_.map(value => value.message);
     const values = [valueNode, ...valueBrowsers];
@@ -160,7 +153,7 @@ group('@amaui/errors', () => {
         ];
 
         return values_.map((value: any) => value.stack);
-      }, { browsers });
+      });
 
       const valueNode = values_.map(value => value.stack);
 
@@ -168,8 +161,8 @@ group('@amaui/errors', () => {
 
       assert(values).eql([
         [
-          "AmauiError: a\n    at /Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:152:9\n    at /Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:309:34\n    at new Promise (<anonymous>)\n    at AmauiTest.runMethod (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:265:16)\n    at AmauiTest.runTo (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:364:48)\n    at runNextTicks (node:internal/process/task_queues:61:5)\n    at processImmediate (node:internal/timers:437:9)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:249:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:251:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:251:21)",
-          "AuthorizationError: a\n    at /Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:153:9\n    at /Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:309:34\n    at new Promise (<anonymous>)\n    at AmauiTest.runMethod (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:265:16)\n    at AmauiTest.runTo (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:364:48)\n    at runNextTicks (node:internal/process/task_queues:61:5)\n    at processImmediate (node:internal/timers:437:9)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:249:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:251:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:251:21)"
+          "AmauiError: a\n    at /Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:145:9\n    at /Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:321:34\n    at new Promise (<anonymous>)\n    at AmauiTest.runMethod (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:277:16)\n    at AmauiTest.runTo (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:382:48)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:255:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:257:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:257:21)\n    at async AmauiTest.run (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:192:13)\n    at async Object.run [as handler] (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/cli.js:59:9)",
+          "AuthorizationError: a\n    at /Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:146:9\n    at /Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:321:34\n    at new Promise (<anonymous>)\n    at AmauiTest.runMethod (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:277:16)\n    at AmauiTest.runTo (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:382:48)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:255:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:257:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:257:21)\n    at async AmauiTest.run (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:192:13)\n    at async Object.run [as handler] (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/cli.js:59:9)"
         ],
         [
           "AmauiError: a\n    at eval (eval at evaluate (:3:2389), <anonymous>:3:21)\n    at t.default.evaluate (<anonymous>:3:2412)\n    at t.default.<anonymous> (<anonymous>:1:44)",
@@ -227,7 +220,7 @@ group('@amaui/errors', () => {
         a();
 
         return values_.map((value: any) => value.stack);
-      }, { browsers });
+      });
 
       const valueNode = values_.map(value => value.stack);
 
@@ -235,8 +228,8 @@ group('@amaui/errors', () => {
 
       assert(values).eql([
         [
-          "AmauiError: a\n    at c (/Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:194:11)\n    at b (/Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:200:9)\n    at a (/Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:204:9)\n    at /Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:207:7\n    at /Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:309:34\n    at new Promise (<anonymous>)\n    at AmauiTest.runMethod (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:265:16)\n    at AmauiTest.runTo (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:364:48)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:249:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:251:21)",
-          "AuthorizationError: a\n    at c (/Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:195:11)\n    at b (/Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:200:9)\n    at a (/Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:204:9)\n    at /Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:207:7\n    at /Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:309:34\n    at new Promise (<anonymous>)\n    at AmauiTest.runMethod (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:265:16)\n    at AmauiTest.runTo (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:364:48)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:249:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:251:21)"
+          "AmauiError: a\n    at c (/Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:187:11)\n    at b (/Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:193:9)\n    at a (/Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:197:9)\n    at /Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:200:7\n    at /Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:321:34\n    at new Promise (<anonymous>)\n    at AmauiTest.runMethod (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:277:16)\n    at AmauiTest.runTo (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:382:48)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:255:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:257:21)",
+          "AuthorizationError: a\n    at c (/Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:188:11)\n    at b (/Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:193:9)\n    at a (/Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:197:9)\n    at /Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:200:7\n    at /Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:321:34\n    at new Promise (<anonymous>)\n    at AmauiTest.runMethod (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:277:16)\n    at AmauiTest.runTo (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:382:48)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:255:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:257:21)"
         ],
         [
           "AmauiError: a\n    at c (eval at evaluate (:3:2389), <anonymous>:4:34)\n    at b (eval at evaluate (:3:2389), <anonymous>:7:21)\n    at a (eval at evaluate (:3:2389), <anonymous>:10:21)\n    at eval (eval at evaluate (:3:2389), <anonymous>:12:17)\n    at t.default.evaluate (<anonymous>:3:2412)\n    at t.default.<anonymous> (<anonymous>:1:44)",
@@ -270,7 +263,7 @@ group('@amaui/errors', () => {
         ];
 
         return values_.map((value: any) => value.stack);
-      }, { browsers });
+      });
 
       const valueNode = values_.map(value => value.stack);
 
@@ -278,8 +271,8 @@ group('@amaui/errors', () => {
 
       assert(values).eql([
         [
-          "Error: a\n    at /Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:257:21\n    at /Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:309:34\n    at new Promise (<anonymous>)\n    at AmauiTest.runMethod (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:265:16)\n    at AmauiTest.runTo (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:364:48)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:249:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:251:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:251:21)\n    at async AmauiTest.run (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:192:13)\n    at async Object.run [as handler] (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/cli.js:59:9)",
-          "Error: a\n    at /Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:257:21\n    at /Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:309:34\n    at new Promise (<anonymous>)\n    at AmauiTest.runMethod (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:265:16)\n    at AmauiTest.runTo (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:364:48)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:249:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:251:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:251:21)\n    at async AmauiTest.run (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:192:13)\n    at async Object.run [as handler] (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/cli.js:59:9)"
+          "Error: a\n    at /Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:250:21\n    at /Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:321:34\n    at new Promise (<anonymous>)\n    at AmauiTest.runMethod (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:277:16)\n    at AmauiTest.runTo (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:382:48)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:255:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:257:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:257:21)\n    at async AmauiTest.run (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:192:13)\n    at async Object.run [as handler] (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/cli.js:59:9)",
+          "Error: a\n    at /Users/lazareric/amaui/amaui-errors/test/amaui-errors.test.ts:250:21\n    at /Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:321:34\n    at new Promise (<anonymous>)\n    at AmauiTest.runMethod (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:277:16)\n    at AmauiTest.runTo (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:382:48)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:255:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:257:21)\n    at async AmauiTest.runGroup (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:257:21)\n    at async AmauiTest.run (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/amaui-test.js:192:13)\n    at async Object.run [as handler] (/Users/lazareric/amaui/amaui-errors/node_modules/@amaui/test/cli.js:59:9)"
         ],
         [
           "Error: a\n    at eval (eval at evaluate (:3:2389), <anonymous>:2:31)\n    at t.default.evaluate (<anonymous>:3:2412)\n    at t.default.<anonymous> (<anonymous>:1:44)",
