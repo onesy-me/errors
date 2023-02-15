@@ -39,11 +39,7 @@
 ### Add
 
 ```sh
-  // yarn
   yarn add @amaui/errors
-
-  // npm
-  npm install @amaui/errors
 ```
 
 ### Use
