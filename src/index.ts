@@ -1,1 +1,1 @@
-export * from './amaui-errors';
+export * from './onesy-errors';

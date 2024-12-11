@@ -5,7 +5,7 @@ interface IClass {
   [p: string]: any;
 }
 
-export interface IAmauiError {
+export interface IOnesyError {
   message: string;
   name: string;
   stack: string;
@@ -15,45 +15,45 @@ export interface IAmauiError {
   [p: string]: any;
 }
 
-export type TAmauiErrorValue = Error | string;
+export type TOnesyErrorValue = Error | string;
 
-export class AmauiError extends Error implements IAmauiError {
+export class OnesyError extends Error implements IOnesyError {
   public added_at: number;
   public stack: string;
   [p: string]: any;
 
-  public constructor(value: TAmauiErrorValue = '', Constructor: IClass = AmauiError, options?: any) {
+  public constructor(value: TOnesyErrorValue = '', Constructor: IClass = OnesyError, options?: any) {
     const isError = value instanceof Error;
     const args = [isError ? value.message : value, options];
 
     super(...args);
 
     // Maintain a proper stack trace either inherit,
-    // or make a new one from atm stack and exclude AmauiError, or parent Constructor from the stack
+    // or make a new one from atm stack and exclude OnesyError, or parent Constructor from the stack
     if (isError) this.stack = value.stack;
     else if (Error.captureStackTrace) Error.captureStackTrace(this, Constructor);
     else this.stack = new Error(this.message).stack;
 
-    this.name = 'AmauiError';
+    this.name = 'OnesyError';
     // Unix
     this.added_at = Math.floor(Date.now() / 1000);
   }
 
 }
 
-export class AmauiTestError extends AmauiError {
+export class OnesyTestError extends OnesyError {
 
-  public constructor(value: TAmauiErrorValue = '', ...args: any[]) {
-    super(value, AmauiTestError, ...args);
+  public constructor(value: TOnesyErrorValue = '', ...args: any[]) {
+    super(value, OnesyTestError, ...args);
 
-    this.name = 'AmauiTestError';
+    this.name = 'OnesyTestError';
   }
 
 }
 
-export class AssertError extends AmauiError {
+export class AssertError extends OnesyError {
 
-  public constructor(value: TAmauiErrorValue = '', ...args: any[]) {
+  public constructor(value: TOnesyErrorValue = '', ...args: any[]) {
     super(value, AssertError, ...args);
 
     this.name = 'AssertError';
@@ -61,9 +61,9 @@ export class AssertError extends AmauiError {
 
 }
 
-export class AuthenticationError extends AmauiError {
+export class AuthenticationError extends OnesyError {
 
-  public constructor(value: TAmauiErrorValue = 'Unauthenticated', ...args: any[]) {
+  public constructor(value: TOnesyErrorValue = 'Unauthenticated', ...args: any[]) {
     super(value, AuthenticationError, ...args);
 
     this.name = 'AuthenticationError';
@@ -71,9 +71,9 @@ export class AuthenticationError extends AmauiError {
 
 }
 
-export class AuthorizationError extends AmauiError {
+export class AuthorizationError extends OnesyError {
 
-  public constructor(value: TAmauiErrorValue = 'Unauthorized', ...args: any[]) {
+  public constructor(value: TOnesyErrorValue = 'Unauthorized', ...args: any[]) {
     super(value, AuthorizationError, ...args);
 
     this.name = 'AuthorizationError';
@@ -81,9 +81,9 @@ export class AuthorizationError extends AmauiError {
 
 }
 
-export class ValidationError extends AmauiError {
+export class ValidationError extends OnesyError {
 
-  public constructor(value: TAmauiErrorValue = 'Invalid', ...args: any[]) {
+  public constructor(value: TOnesyErrorValue = 'Invalid', ...args: any[]) {
     super(value, ValidationError, ...args);
 
     this.name = 'ValidationError';
@@ -91,9 +91,9 @@ export class ValidationError extends AmauiError {
 
 }
 
-export class NotFoundError extends AmauiError {
+export class NotFoundError extends OnesyError {
 
-  public constructor(value: TAmauiErrorValue = 'Not found', ...args: any[]) {
+  public constructor(value: TOnesyErrorValue = 'Not found', ...args: any[]) {
     super(value, NotFoundError, ...args);
 
     this.name = 'NotFoundError';
@@ -101,9 +101,9 @@ export class NotFoundError extends AmauiError {
 
 }
 
-export class PermissionError extends AmauiError {
+export class PermissionError extends OnesyError {
 
-  public constructor(value: TAmauiErrorValue = 'No permissions', ...args: any[]) {
+  public constructor(value: TOnesyErrorValue = 'No permissions', ...args: any[]) {
     super(value, PermissionError, ...args);
 
     this.name = 'PermissionError';
@@ -111,39 +111,39 @@ export class PermissionError extends AmauiError {
 
 }
 
-export class AmauiAmqpError extends AmauiError {
+export class OnesyAmqpError extends OnesyError {
 
-  public constructor(value: TAmauiErrorValue = '', ...args: any[]) {
-    super(value, AmauiAmqpError, ...args);
+  public constructor(value: TOnesyErrorValue = '', ...args: any[]) {
+    super(value, OnesyAmqpError, ...args);
 
-    this.name = 'AmauiAmqpError';
+    this.name = 'OnesyAmqpError';
   }
 
 }
 
-export class AmauiAwsError extends AmauiError {
+export class OnesyAwsError extends OnesyError {
 
-  public constructor(value: TAmauiErrorValue = '', ...args: any[]) {
-    super(value, AmauiAwsError, ...args);
+  public constructor(value: TOnesyErrorValue = '', ...args: any[]) {
+    super(value, OnesyAwsError, ...args);
 
-    this.name = 'AmauiAwsError';
+    this.name = 'OnesyAwsError';
   }
 
 }
 
-export class AmauiMongoError extends AmauiError {
+export class OnesyMongoError extends OnesyError {
 
-  public constructor(value: TAmauiErrorValue = '', ...args: any[]) {
-    super(value, AmauiMongoError, ...args);
+  public constructor(value: TOnesyErrorValue = '', ...args: any[]) {
+    super(value, OnesyMongoError, ...args);
 
-    this.name = 'AmauiMongoError';
+    this.name = 'OnesyMongoError';
   }
 
 }
 
-export class ConnectionError extends AmauiError {
+export class ConnectionError extends OnesyError {
 
-  public constructor(value: TAmauiErrorValue = '', ...args: any[]) {
+  public constructor(value: TOnesyErrorValue = '', ...args: any[]) {
     super(value, ConnectionError, ...args);
 
     this.name = 'ConnectionError';
@@ -151,9 +151,9 @@ export class ConnectionError extends AmauiError {
 
 }
 
-export class DeveloperError extends AmauiError {
+export class DeveloperError extends OnesyError {
 
-  public constructor(value: TAmauiErrorValue = '', ...args: any[]) {
+  public constructor(value: TOnesyErrorValue = '', ...args: any[]) {
     super(value, DeveloperError, ...args);
 
     this.name = 'DeveloperError';

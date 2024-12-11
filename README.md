@@ -4,11 +4,11 @@
 
 <p align='center'>
   <a target='_blank' rel='noopener noreferrer' href='#'>
-    <img src='utils/images/logo.svg' alt='amaui logo' />
+    <img src='utils/images/logo.svg' alt='onesy logo' />
   </a>
 </p>
 
-<h1 align='center'>amaui Errors</h1>
+<h1 align='center'>onesy Errors</h1>
 
 <p align='center'>
   Errors
@@ -39,28 +39,28 @@
 ### Add
 
 ```sh
-yarn add @amaui/errors
+yarn add @onesy/errors
 ```
 
 ### Use
 
 ```javascript
-  import { AmauiError } from '@amaui/errors';
-  import AmauiLog from '@amaui/log';
+  import { OnesyError } from '@onesy/errors';
+  import OnesyLog from '@onesy/log';
 
-  const amauiError = new AmauiError('a');
+  const onesyError = new OnesyError('a');
 
-  amauiError.name;
-  amauiError.message;
-  amauiError.added_at;
-  amauiError.stack;
+  onesyError.name;
+  onesyError.message;
+  onesyError.added_at;
+  onesyError.stack;
 
-  // AmauiError
+  // OnesyError
   // 'a'
   // 1643893234
-  // 'AmauiError: a\n    at eval (eval at evaluate (:3:2389), <anonymous>:2:31)\n    at t.default.evaluate (<anonymous>:3:2412)\n    at t.default.<anonymous> (<anonymous>:1:44)'
+  // 'OnesyError: a\n    at eval (eval at evaluate (:3:2389), <anonymous>:2:31)\n    at t.default.evaluate (<anonymous>:3:2412)\n    at t.default.<anonymous> (<anonymous>:1:44)'
 
-  AmauiLog.error(amauiError);
+  OnesyLog.error(onesyError);
 
   // Output
 
@@ -68,7 +68,7 @@ yarn add @amaui/errors
 
     // a
 
-    // AmauiError: a
+    // OnesyError: a
     //    at eval (eval at evaluate (:3:2389), <anonymous>:2:31)
     //    at t.default.evaluate (<anonymous>:3:2412)
     //    at t.default.<anonymous> (<anonymous>:1:44)
