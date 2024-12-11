@@ -31,7 +31,7 @@ npm manifest:
     "name": "@onesy/errors",
     "version": "1.0.11111",
     "description": "Errors",
-    "repository": "https://github.com/onesy-org/onesy-errors.git",
+    "repository": "https://github.com/onesy-me/errors.git",
     "author": "Lazar <lazareric.com@gmail.com>",
     "license": "MIT",
     "private": false,

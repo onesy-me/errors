@@ -2,7 +2,7 @@
   "name": "@onesy/errors",
   "version": "1.0.0",
   "description": "Errors",
-  "repository": "https://github.com/onesy-org/onesy-errors.git",
+  "repository": "https://github.com/onesy-me/errors.git",
   "author": "Lazar <lazareric2@gmail.com>",
   "license": "MIT",
   "private": false,
